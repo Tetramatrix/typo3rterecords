@@ -1,0 +1,39 @@
+--- class.ux_tx_rtehtmlarea_browse_links.php
++++ class.ux_tx_rtehtmlarea_browse_links-ndh.php
+@@ -189,7 +189,14 @@
+
+               $ficon = t3lib_iconWorks::getIcon($table,$row);
+
+-        $aOnClick = 'return link_record(\''.$row['uid'].'\',\''.$this->tableParams[$table]['GPparamUID'].'\',\''.$this->tableParams[$table]['GPparamCMD'].'\',\''.$this->tableParams[$table]['singlePID'].'\',\''.$this->tableParams[$table]['GPparambackPid'].'\',\''.$this->tableParams[$table]['backPid'].'\',\''.$this->tableParams[$table]['no_cache'].'\')';
++
++               // added by ndh
++               if(!empty($this->tableParams[$table]['userFunc'])){
++                       $params = $this->tableParams[$table];
++                       $params['uid'] = $row['uid'];
++                       $aOnClick = t3lib_div::callUserFunction($this->tableParams[$table]['userFunc'],$params,$this,$checkPrefix='user_',$silent=0);
++               }
++               else $aOnClick = 'return link_record(\''.$row['uid'].'\',\''.$this->tableParams[$table]['GPparamUID'].'\',\''.$this->tableParams[$table]['GPparamCMD'].'\',\''.$this->tableParams[$table]['singlePid'].'\',\''.$this->tableParams[$table]['GPparambackPid'].'\',\''.$this->tableParams[$table]['backPid'].'\',\''.$this->tableParams[$table]['no_cache'].'\')';
+
+        $ATag = '<a href="#" onclick="'.htmlspecialchars($aOnClick).'">';
+               $ATag_e = '</a>';
+@@ -296,9 +303,17 @@
+               }
+
+        $menuDef['linkRecord']['isActive'] = $this->act=='linkRecord';
+-        $menuDef['linkRecord']['label'] = 'Link Record';
+-        $menuDef['linkRecord']['url'] = '#';
+-        $menuDef['linkRecord']['addParams'] = 'onclick="jumpToUrl(\'?act=linkRecord\');return false;"';
++         //$menuDef['linkRecord']['label'] = 'Link Record';
++        // added by ndh
++        if(!empty($BE_USER->userTS['linkRecord.']['browseTabLabel']))$menuDef['linkRecord']['label'] = $BE_USER->userTS['linkRecord.']['browseTabLabel'];
++               else $menuDef['linkRecord']['label'] = 'Link record ';
++        $menuDef['linkRecord']['url'] = '#';
++
++        // $menuDef['linkRecord']['addParams'] = 'onclick="jumpToUrl(\'?act=linkRecord\');return false;"';
++        // added by ndh
++               if(!empty($BE_USER->userTS['linkRecord.']['defaultExpandPage']))$expandPage = '&amp;expandPage='.$BE_USER->userTS['linkRecord.']['defaultExpandPage'];
++               else $expandPage = '';
++               $menuDef['linkRecord']['addParams'] = 'onclick="jumpToUrl(\'?act=linkRecord&amp;mode=rte'.$expandPage.'\');return false;"';
+
+               if (in_array('page',$allowedItems)) {
+                       $menuDef['page']['isActive'] = $this->act=='page';

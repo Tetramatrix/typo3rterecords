@@ -1,0 +1,16 @@
+52,58d51
+< global $BE_USER;
+< if ($table==-1 && $this->table=='') {
+< 	$tablesArray = array();
+< 	foreach ($BE_USER->userTS['linkRecord.'] as $def)
+< 		$tablesArray[] = $def['table'];
+< 	$table = implode(',', $tablesArray);
+< }
+158c151
+< 				$href = $this->script.'?id='.$this->id.'&pointer='.($this->eCounter-$this->iLimit).$tParam.'&search_field='.t3lib_div::_GP('search_field').'&mode='.$this->i6lGParams['mode'].'&editorNo='.$this->i6lGParams['editorNo'].'&act='.$this->i6lGParams['act'].'&RTEtsConfigParams='.$this->i6lGParams['RTEtsConfigParams'].'&expandPage='.$this->i6lGParams['expandPage'].'&curUrlInfo='.$this->i6lGParams['curUrlInfo'];
+---
+> 				$href = $this->script.'?id='.$this->id.'&pointer='.($this->eCounter-$this->iLimit).$tParam.'&mode='.$this->i6lGParams['mode'].'&editorNo='.$this->i6lGParams['editorNo'].'&act='.$this->i6lGParams['act'].'&RTEtsConfigParams='.$this->i6lGParams['RTEtsConfigParams'].'&expandPage='.$this->i6lGParams['expandPage'].'&curUrlInfo='.$this->i6lGParams['curUrlInfo'];
+164c157
+< 				$href = $this->script.'?id='.$this->id.'&pointer='.$this->eCounter.$tParam.'&search_field='.t3lib_div::_GP('search_field').'&mode='.$this->i6lGParams['mode'].'&editorNo='.$this->i6lGParams['editorNo'].'&act='.$this->i6lGParams['act'].'&RTEtsConfigParams='.$this->i6lGParams['RTEtsConfigParams'].'&expandPage='.$this->i6lGParams['expandPage'].'&curUrlInfo='.$this->i6lGParams['curUrlInfo'];
+---
+> 				$href = $this->script.'?id='.$this->id.'&pointer='.$this->eCounter.$tParam.'&mode='.$this->i6lGParams['mode'].'&editorNo='.$this->i6lGParams['editorNo'].'&act='.$this->i6lGParams['act'].'&RTEtsConfigParams='.$this->i6lGParams['RTEtsConfigParams'].'&expandPage='.$this->i6lGParams['expandPage'].'&curUrlInfo='.$this->i6lGParams['curUrlInfo'];

@@ -1,0 +1,26 @@
+--- class.ux_tx_rtehtmlarea_browse_links.old.php	2008-01-10 16:17:09.000000000 +1100
++++ class.ux_tx_rtehtmlarea_browse_links.php	2008-01-10 16:16:27.000000000 +1100
+@@ -148,13 +148,13 @@
+ 		$tParam = $table ? '&table='.rawurlencode($table) : '';
+ 		switch($type)	{
+ 			case 'fwd':
+-				$href = $this->script.'?id='.$this->id.'&pointer='.($this->eCounter-$this->iLimit).$tParam.'&mode='.$this->i6lGParams['mode'].'&act='.$this->i6lGParams['act'].'&RTEtsConfigParams='.$this->i6lGParams['RTEtsConfigParams'].'&expandPage='.$this->i6lGParams['expandPage'].'&curUrlInfo='.$this->i6lGParams['curUrlInfo'];
++				$href = $this->script.'?id='.$this->id.'&pointer='.($this->eCounter-$this->iLimit).$tParam.'&mode='.$this->i6lGParams['mode'].'&editorNo='.$this->i6lGParams['editorNo'].'&act='.$this->i6lGParams['act'].'&RTEtsConfigParams='.$this->i6lGParams['RTEtsConfigParams'].'&expandPage='.$this->i6lGParams['expandPage'].'&curUrlInfo='.$this->i6lGParams['curUrlInfo'];
+ 				return '<a href="'.htmlspecialchars($href).'">'.
+ 						'<img'.t3lib_iconWorks::skinImg($this->backPath,'gfx/pilup.gif','width="14" height="14"').' alt="" />'.
+ 						'</a> <i>[1 - '.$pointer.']</i>';
+ 			break;
+ 			case 'rwd':
+-				$href = $this->script.'?id='.$this->id.'&pointer='.$this->eCounter.$tParam.'&mode='.$this->i6lGParams['mode'].'&act='.$this->i6lGParams['act'].'&RTEtsConfigParams='.$this->i6lGParams['RTEtsConfigParams'].'&expandPage='.$this->i6lGParams['expandPage'].'&curUrlInfo='.$this->i6lGParams['curUrlInfo'];
++				$href = $this->script.'?id='.$this->id.'&pointer='.$this->eCounter.$tParam.'&mode='.$this->i6lGParams['mode'].'&editorNo='.$this->i6lGParams['editorNo'].'&act='.$this->i6lGParams['act'].'&RTEtsConfigParams='.$this->i6lGParams['RTEtsConfigParams'].'&expandPage='.$this->i6lGParams['expandPage'].'&curUrlInfo='.$this->i6lGParams['curUrlInfo'];
+ 				return '<a href="'.htmlspecialchars($href).'">'.
+ 						'<img'.t3lib_iconWorks::skinImg($this->backPath,'gfx/pildown.gif','width="14" height="14"').' alt="" />'.
+ 						'</a> <i>['.($pointer+1).' - '.$this->totalItems.']</i>';
+@@ -789,6 +789,7 @@
+                                         'pointer' => $this->pointer,
+                                         'act' => $this->act,
+                                         'mode' => $this->mode,
++                                        'editorNo' => $this->editorNo,
+                                         'curUrlInfo' => $this->curUrlInfo,
+                                         'curUrlArray' => $this->curUrlArray,
+                                         'P' => $this->P,

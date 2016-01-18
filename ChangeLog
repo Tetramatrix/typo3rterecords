@@ -1,0 +1,32 @@
+(add new changes on top of this file)
+
+09-04-23 Chi Hoang <info@chihoang.de>
+
+       * Fixed Fixed Invalid arguments passed to function pagebrowser
+       * Fixed $forceTarget cannot be "_self" thus links always opens in new window
+
+09-01-30 Chi Hoang <info@chihoang.de>
+
+	* Fixed function addattribute()
+	* Fixed Code Optimization
+	* Patch by Philipe Idler (options.uploadFieldsInTopOfEB & options.createFoldersInEB in the File-Tab)
+
+09-01-04 Chi Hoang <info@chihoang.de>
+
+	* Add linkhandler-Hook
+	* Bugfix Underline
+	* Bugfix absolute Url
+
+08-12-31 Chi Hoang <info@chihoang.de>
+
+	* Bugfix remove link
+	* Bugfix htmlrte Typo3Link-API
+	* Feature request Multitab
+
+08-11-01 Chi Hoang  <info@chihoang.de>
+
+	* major document review
+
+06-06-05 Chi Hoang  <info@chihoang.de>
+
+	* Initial release
